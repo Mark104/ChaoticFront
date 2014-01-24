@@ -1,0 +1,30 @@
+using UnityEngine;
+using System.Collections;
+
+public class Bullet : MonoBehaviour {
+	
+	public float life = 7;
+	public int speed;
+	float currentLife = 0;
+	public byte team;
+	public byte damage;
+
+	// Use this for initialization
+	void Start () {
+	
+		transform.rigidbody.velocity = transform.forward * speed;
+	}
+	
+	// Update is called once per frame
+	void Update () {
+		
+		currentLife += Time.deltaTime;
+		
+		if(currentLife > life)
+		{
+			Destroy(gameObject);	
+		}
+	
+	}
+	
+}
